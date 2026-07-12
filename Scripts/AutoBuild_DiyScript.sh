@@ -36,7 +36,7 @@ Firmware_Diy() {
 
 	# 可用预设变量, 其他可用变量请参考运行日志
 	# ${OP_AUTHOR}			OpenWrt 源码作者
-	# ${OP_REPO}				OpenWrt 仓库名称
+	# ${OP_REPO}			OpenWrt 仓库名称
 	# ${OP_BRANCH}			OpenWrt 源码分支
 	# ${TARGET_PROFILE}		设备名称
 	# ${TARGET_BOARD}			设备架构
@@ -50,6 +50,9 @@ Firmware_Diy() {
 	# ${FEEDS_LUCI}			OpenWrt 源码目录下的 package/feeds/luci 目录
 	# ${FEEDS_PKG}			OpenWrt 源码目录下的 package/feeds/packages 目录
 	# ${BASE_FILES}			OpenWrt 源码目录下的 package/base-files/files 目录
-
-	:
+	case "${CONFIG_FILE}" in
+	lienol23.05-psg1208)
+	AddPackage luci-app-dnsfilter kiddin9 luci-app-dnsfilter main
+	;;
+	esac
 }
